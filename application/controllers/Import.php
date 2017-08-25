@@ -31,7 +31,7 @@ class Import extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload('filename'))
+		if ( ! $this->upload->do_upload('filename') )
 		{
 			$error = array('error' => $this->upload->display_errors());
 			$data['filename'] = $error;
@@ -39,7 +39,7 @@ class Import extends CI_Controller {
 		}
 		else
 		{
-			//@ $data = array('upload_data' => $this->upload->data());
+			// @ $data = array('upload_data' => $this->upload->data());
 			$filename = $this->upload->data('full_path');
 			$csv = Reader::createFromPath($filename);
 			$csv_data = $csv->fetchAll();

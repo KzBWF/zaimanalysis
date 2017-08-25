@@ -21,7 +21,7 @@ class Yearly extends CI_Controller {
 		}
 		$year = $this->year;
 
-		// @ Total payment per month
+		// @ Total payment per year
 		$result = $this->mydata_model->getpay_year($year);
 		$objects = $result->result('object');
 		$totalpay = 0;
@@ -30,7 +30,7 @@ class Yearly extends CI_Controller {
 		}
 		$data['payment'] = $result->result('object');
 
-		// @ Total income per month
+		// @ Total income per year
 		$result = $this->mydata_model->getinc_year($year);
 		$objects = $result->result('object');
 		$totalinc = 0;
@@ -39,7 +39,7 @@ class Yearly extends CI_Controller {
 		}
 		$data['income'] = $result->result('object');
 
-		// @ Balance of payments per month
+		// @ Balance of payments per year
 		$balance = $totalinc - $totalpay;
 
 		// @ 表示
